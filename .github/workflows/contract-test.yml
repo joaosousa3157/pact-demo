@@ -12,7 +12,7 @@ jobs:
   generate-pact:
     runs-on: ubuntu-latest
     outputs:
-      pact-path: pacts/FrontendApp-UserService.json
+      pact-path: pacts/frontend-api.json
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -30,7 +30,7 @@ jobs:
         run: npm run test:consumer
 
       - name: Ensure Pact File Exists
-        run: test -f pacts/FrontendApp-UserService.json
+        run: test -f pacts/frontend-api.json
 
       - name: Upload Pact Artifact
         uses: actions/upload-artifact@v4
